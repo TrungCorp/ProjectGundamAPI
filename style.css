@@ -1,0 +1,41 @@
+.pageTitle{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    color: gold;
+}
+body{
+    background-image: url("1gundampic1.jpg");
+}
+.border1{
+    margin-top: 50px;
+    background: cyan;
+    width: 700px;
+    height: 700px;
+    border: 5px solid silver;
+  
+    
+    
+    
+}
+.gundamTitle{
+    font-weight: bold;
+}
+#genButton{
+    margin-left: 90px;
+   
+    width: 150px;
+    height: 40px;
+    
+    background-color: silver;
+    color: blue;
+}
+.gundamImage{
+    margin-top: 300px;
+   float: right;
+    height: 250px;
+    width: 400px;
+
+    
+}
