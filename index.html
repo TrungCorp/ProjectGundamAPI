@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8" />
         <title>GUNDAM API</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <h1  class="pageTitle">WELCOME TO THE GUNDAM API</h1>
-        <button id="genButton">GENERATE</button>
-        <div class="border1">
-            <p class="gundamTitle">GUNDAM FRAME:</p>
-            <img src="R1.jpg" class="gundamImage">
+        <button id="genButton" type="submit">GENERATE</button>
+        <div class="border1" id="border1">
+            <h1 class="gundamTitle">GUNDAM FRAME:</h1>
+            <!--<img src="R1.jpg" class="gundamImage" id="img1"> -->
+        </div>
+        <form class="gundamForm">
+            <input id="inputBar" name="atkNum" type:"text" placeholder="Enter Number Here..">
+            <button type="submit">BATTLE!</button>
+        </form>
+        <div class="border2">
+            <h1>test border</h1>
         </div>
 
         <script type="text/javascript" src="script.js"></script>

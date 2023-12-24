@@ -19,6 +19,15 @@ body{
     
     
 }
+.border2{
+    float: right;
+    border: 5px solid gold;
+    color: cyan;
+    position: absolute;
+    right: 20px;
+    top: 200px;
+
+}
 .gundamTitle{
     font-weight: bold;
 }
@@ -37,5 +46,21 @@ body{
     height: 250px;
     width: 400px;
 
+    
+}
+.gundamForm{
+    position:absolute;
+    left: 750px;
+    top: 300px;
+    height: 1200px;
+    width: 400px;
+}
+.gundamIcon{
+    align-items: left;
+}
+#inputBar{
+    height: 25px;
+    width: 150px;
+    font-size: 15px;
     
 }
