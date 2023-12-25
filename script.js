@@ -5,10 +5,23 @@ document.addEventListener('DOMContentLoaded',function(){
     const borderOne = document.getElementById("border1")
     //REFERENCE TO RIGHT DIV
     const bordertwo = document.getElementById("border2")
+    //REFERENCE TO SUBMIT BUTTON
+    const submitButton = document.getElementById("submitButton")
+    function clearDivs(){
+        borderOne.innerHTML = ""
+        bordertwo.innerHTML = ""
+    }
+    function constructEq(){
+        const rand1 = Math.floor(Math.random()*9)
+        const rand2 = Math.floor(Math.random()*9)
 
+
+    }
+   
     //=====CLICK EVENT FOR GENERATE BUTTON=====//
     genButton.addEventListener('click',function(){
         console.log("GENERATE BUTTON PRESSED!")
+
         fetch('http://localhost:3000/gundams')
         .then(resp =>{
             if(resp.ok)
@@ -19,25 +32,44 @@ document.addEventListener('DOMContentLoaded',function(){
             
         })
         .then(result=>{
-            const rando = Math.floor(Math.random()*5) 
-            borderOne.innerHTML = ""
-            bordertwo.innerHTML = ""
-            const divItem = document.createElement('h1')
-            const divItem1 = document.createElement('h1')
-            divItem1.textContent = `FRAME: ${result[rando].frame}`
-            divItem.textContent = `PILOT: ${result[rando].pilot}`
+            
+            clearDivs();
+            const rando = Math.floor(Math.random() * 5)
+            const divItem = document.createElement('h3')
+            const divItem1 = document.createElement('h3')
+            const divItem2 = document.createElement('h3')
+            const divItem3 = document.createElement('h3')
+            
+            
+            divItem.textContent = `FRAME: ${result[rando].frame}`
+            divItem1.textContent = `PILOT: ${result[rando].pilot}`
+            divItem2.textContent = `MANUFACTURER: ${result[rando].manufacturer}`
+            divItem3.textContent = `ANIME SERIES: ${result[rando]['anime-series']}`
+
+
+
+            
             const imgElem = document.createElement('img')
             const imgElem2 = document.createElement('img')
-            imgElem2.setAttribute("src",result[rando]['pilot-image'])
-            imgElem2.classList.add("gundamImage")
+            imgElem2.setAttribute("src", result[rando]['pilot-image'])
+
+            imgElem2.classList.add("gundamImage2")
+            imgElem2.style.visibility = "hidden"
             bordertwo.appendChild(imgElem2)
-            imgElem.setAttribute('src',result[rando].image)
+            imgElem.setAttribute('src', result[rando].image)
             imgElem.classList.add('gundamImage')
-            imgElem.addEventListener('mouseover',function(){
+            
+            bordertwo.addEventListener('mouseover',function(){
                 console.log("mouse hovering!")
+                imgElem2.style.visibility = "visible"
+                bordertwo.addEventListener('mouseleave',function(){
+                    imgElem2.style.visibility = "hidden"
+                })
             })
             borderOne.appendChild(divItem1)
             borderOne.appendChild(divItem)
+            borderOne.appendChild(divItem2)
+            borderOne.appendChild(divItem3)
             borderOne.appendChild(imgElem)
         
             
