@@ -5,12 +5,15 @@ document.addEventListener('DOMContentLoaded',function(){
     const borderOne = document.getElementById("border1")
     //REFERENCE TO RIGHT DIV
     const bordertwo = document.getElementById("border2")
-    //REFERENCE TO SUBMIT BUTTON
-    const submitButton = document.getElementById("submitButton")
+    //REFERENCE TO INPUT BAR
+    let inputBar = document.getElementById("inputBar")
     //REFERENCE TO MESSGE IN MIDDLE OF PAGE
     const consoleOne = document.getElementById("console1")
+    //REFERENCE TO FORM ELEMENT
+    const gundamForm = document.getElementById("gundamForm")
     const genCounterButton = document.getElementById("genCounterButton")
-    const genCounter = 0
+    let genCounter = 0
+    let randAns 
     genCounterButton.innerHTML = genCounter
     genCounterButton
     function clearDivs(){
@@ -20,8 +23,14 @@ document.addEventListener('DOMContentLoaded',function(){
     function constructEq(){
         const rand1 = Math.floor(Math.random()*9)
         const rand2 = Math.floor(Math.random()*9)
-        
-
+        let ans = rand1 * rand2
+        consoleOne.innerHTML = `${rand1} * ${rand2} = __?`
+        randAns = ans
+    }
+    constructEq()
+    function setGenCounter()
+    {
+        genCounterButton.innerText = genCounter
     }
    
     //=====CLICK EVENT FOR GENERATE BUTTON=====//
@@ -31,6 +40,9 @@ document.addEventListener('DOMContentLoaded',function(){
         {
             return
         }
+     
+        genCounter--;
+        setGenCounter()
         fetch('http://localhost:3000/gundams')
         .then(resp =>{
             if(resp.ok)
@@ -60,8 +72,8 @@ document.addEventListener('DOMContentLoaded',function(){
             
             const imgElem = document.createElement('img')
             const imgElem2 = document.createElement('img')
-            imgElem2.setAttribute("src", result[rando]['pilot-image'])
 
+            imgElem2.setAttribute("src", result[rando]['pilot-image'])
             imgElem2.classList.add("gundamImage2")
             imgElem2.style.visibility = "hidden"
             bordertwo.appendChild(imgElem2)
@@ -75,6 +87,8 @@ document.addEventListener('DOMContentLoaded',function(){
                     imgElem2.style.visibility = "hidden"
                 })
             })
+            //END OF MOVEOVER EVENT
+
             borderOne.appendChild(divItem1)
             borderOne.appendChild(divItem)
             borderOne.appendChild(divItem2)
@@ -89,8 +103,22 @@ document.addEventListener('DOMContentLoaded',function(){
     //=====END OF CLICK EVENT FOR GENERATE BUTTON====//
 
     //SUBMIT EVENT
-    submitButton.addEventListener('submit',function(event){
+    gundamForm.addEventListener('submit',function(event){
         event.preventDefault()
         console.log('SUBMIT BUTTON PRESSED!')
+        
+        
+        
+        if(parseInt(event.target['atkNum'].value) === randAns)
+        {
+            
+            genCounter++;
+            setGenCounter()
+            constructEq()
+
+        }
+        else{
+            return
+        }
     })
 })
