@@ -74,3 +74,15 @@ body{
     font-size: 15px;
     
 }
+#consoleElement{
+    position: absolute;
+    left: 750px;
+    top: 200px;
+    color: yellowgreen;
+}
+#genCounterButton{
+    color: whitesmoke;
+    position: absolute;
+    left: 300px;
+    top: 60px;
+}

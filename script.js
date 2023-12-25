@@ -7,6 +7,12 @@ document.addEventListener('DOMContentLoaded',function(){
     const bordertwo = document.getElementById("border2")
     //REFERENCE TO SUBMIT BUTTON
     const submitButton = document.getElementById("submitButton")
+    //REFERENCE TO MESSGE IN MIDDLE OF PAGE
+    const consoleOne = document.getElementById("console1")
+    const genCounterButton = document.getElementById("genCounterButton")
+    const genCounter = 0
+    genCounterButton.innerHTML = genCounter
+    genCounterButton
     function clearDivs(){
         borderOne.innerHTML = ""
         bordertwo.innerHTML = ""
@@ -14,14 +20,17 @@ document.addEventListener('DOMContentLoaded',function(){
     function constructEq(){
         const rand1 = Math.floor(Math.random()*9)
         const rand2 = Math.floor(Math.random()*9)
-
+        
 
     }
    
     //=====CLICK EVENT FOR GENERATE BUTTON=====//
     genButton.addEventListener('click',function(){
         console.log("GENERATE BUTTON PRESSED!")
-
+        if(genCounter<=0)
+        {
+            return
+        }
         fetch('http://localhost:3000/gundams')
         .then(resp =>{
             if(resp.ok)
@@ -58,11 +67,11 @@ document.addEventListener('DOMContentLoaded',function(){
             bordertwo.appendChild(imgElem2)
             imgElem.setAttribute('src', result[rando].image)
             imgElem.classList.add('gundamImage')
-            
-            bordertwo.addEventListener('mouseover',function(){
+            //MOUSEOVER EVENT
+            imgElem.addEventListener('mouseover',function(){
                 console.log("mouse hovering!")
                 imgElem2.style.visibility = "visible"
-                bordertwo.addEventListener('mouseleave',function(){
+                imgElem.addEventListener('mouseleave',function(){
                     imgElem2.style.visibility = "hidden"
                 })
             })
@@ -78,4 +87,10 @@ document.addEventListener('DOMContentLoaded',function(){
 
     })
     //=====END OF CLICK EVENT FOR GENERATE BUTTON====//
+
+    //SUBMIT EVENT
+    submitButton.addEventListener('submit',function(event){
+        event.preventDefault()
+        console.log('SUBMIT BUTTON PRESSED!')
+    })
 })
