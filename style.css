@@ -21,11 +21,14 @@ body{
 }
 .border2{
     float: right;
-    border: 5px solid gold;
+    border: 5px solid silver;
     color: cyan;
+    background: orange;
     position: absolute;
-    right: 20px;
+    right: 250px;
     top: 200px;
+    width: 500px;
+    height: 400px;
 
 }
 .gundamTitle{
@@ -41,10 +44,10 @@ body{
     color: blue;
 }
 .gundamImage{
-    margin-top: 300px;
-   float: right;
-    height: 250px;
-    width: 400px;
+    
+   float: center;
+    height: 350px;
+    width: 500px;
 
     
 }

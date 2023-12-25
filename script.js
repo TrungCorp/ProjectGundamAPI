@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded',function(){
-    
+    //REFERENCE TO GENERATE BUTTON
     const genButton = document.getElementById("genButton")
+    //REFERENCE TO LEFT DIV
     const borderOne = document.getElementById("border1")
+    //REFERENCE TO RIGHT DIV
+    const bordertwo = document.getElementById("border2")
 
     //=====CLICK EVENT FOR GENERATE BUTTON=====//
     genButton.addEventListener('click',function(){
@@ -16,19 +19,23 @@ document.addEventListener('DOMContentLoaded',function(){
             
         })
         .then(result=>{
-            const rando = Math.floor(Math.random()*4) 
-            console.log(rando)
-            console.log(result[rando].frame)
-            console.log(result[rando].pilot)
-            console.log("")
-
+            const rando = Math.floor(Math.random()*5) 
+            borderOne.innerHTML = ""
+            bordertwo.innerHTML = ""
             const divItem = document.createElement('h1')
             const divItem1 = document.createElement('h1')
-            divItem1.textContent = result[rando].frame
-            divItem.textContent = result[rando].pilot
+            divItem1.textContent = `FRAME: ${result[rando].frame}`
+            divItem.textContent = `PILOT: ${result[rando].pilot}`
             const imgElem = document.createElement('img')
+            const imgElem2 = document.createElement('img')
+            imgElem2.setAttribute("src",result[rando]['pilot-image'])
+            imgElem2.classList.add("gundamImage")
+            bordertwo.appendChild(imgElem2)
             imgElem.setAttribute('src',result[rando].image)
             imgElem.classList.add('gundamImage')
+            imgElem.addEventListener('mouseover',function(){
+                console.log("mouse hovering!")
+            })
             borderOne.appendChild(divItem1)
             borderOne.appendChild(divItem)
             borderOne.appendChild(imgElem)
