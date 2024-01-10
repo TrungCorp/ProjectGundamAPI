@@ -14,7 +14,7 @@ body{
     width: 700px;
     height: 700px;
     border: 5px solid silver;
-    font-size: x-large;
+    font-size: large;
   
     
     
@@ -47,8 +47,8 @@ body{
 .gundamImage{
     
    float: center;
-    height: 350px;
-    width: 500px;
+    height: 1080px;
+    width: 1920px;
     
     
 }
@@ -80,9 +80,30 @@ body{
     top: 200px;
     color: yellowgreen;
 }
-#genCounterButton{
+#genCounter{
     color: whitesmoke;
     position: absolute;
     left: 300px;
     top: 60px;
+}
+
+.gundamImage {
+    height: 148px;
+    width: 232px;
+    object-fit: fill;
+}
+.gundamInfo{
+    text-align: center;
+    min-height: 70px;
+}
+.gundamCard{
+    text-align: center;
+        border: grey solid .5px;
+        padding: .2rem;
+        width: 15rem;
+        height: 10rem;
+        display: inline-grid;
+        margin: 1rem 2rem;
+        box-shadow: 3px 4px #daf105
+        
 }
